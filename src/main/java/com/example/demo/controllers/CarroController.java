@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.CarroDTO;
 import com.example.demo.services.CarroService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -24,22 +25,25 @@ public class CarroController {
 	
 	private final CarroService carroService;
 	
-	
+	@ApiOperation(value = "Retorna uma lista de Clientes")
 	@GetMapping
 	public ResponseEntity<List<CarroDTO>> buscarCarros() {
 		return ResponseEntity.ok(carroService.getCarros());
 	}	
 	
+	@ApiOperation(value = "Salva um novo cadastro de cliente")
 	@PostMapping
 	public ResponseEntity<CarroDTO> saveCarro(@RequestBody CarroDTO carro) {
 		return ResponseEntity.ok(carroService.saveCarro(carro));
 	}
 	
+	@ApiOperation(value = "Atualiza a lista de Clientes")
 	@PutMapping
 	public ResponseEntity<CarroDTO> updateCarro(@RequestBody CarroDTO carro) {
 		return ResponseEntity.ok(carroService.updateCarro(carro));
 	}
-	 
+	
+	@ApiOperation(value = "Deleta cliente por id")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		carroService.deleteCarro(id);
