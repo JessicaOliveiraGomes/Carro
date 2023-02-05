@@ -18,7 +18,6 @@ import lombok.Setter;
 @Builder
 public class Document {
 	
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;

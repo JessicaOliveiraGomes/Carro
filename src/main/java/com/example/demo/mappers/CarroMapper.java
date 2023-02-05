@@ -18,7 +18,6 @@ public class CarroMapper {
 	
 	private final DocumentMapper documentMapper;
 	
-	
 	public CarroDTO entidadesParaDTO(Carro entidade) {
 		
 		return CarroDTO.builder()

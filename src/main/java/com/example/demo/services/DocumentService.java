@@ -21,11 +21,9 @@ public class DocumentService {
 	private final DocumentRepository documentRepository;
 	private final DocumentMapper documentMapper;
 	
-	
 	public List<DocumentDTO> getDocuments() {
 		return documentMapper.entidadesParaDTO(documentRepository.findAll());
 	}
-	
 	
 	public DocumentDTO saveDocument(DocumentDTO document) {
 		Document entidade = documentMapper.dtoParaEntidade(document);
