@@ -26,7 +26,7 @@ public class CarroController {
 	
 	private final CarroService carroService;
 	
-	@ApiOperation(value = "Retorna uma lista de Clientes")
+	@ApiOperation(value = "Retorna uma lista de Carros")
 	@GetMapping
 	public ResponseEntity<List<CarroDTO>> buscarCarros() {
 		return ResponseEntity.ok(carroService.getCarros());
@@ -37,19 +37,19 @@ public class CarroController {
 		return ResponseEntity.ok(carroService.carroById(id));
 	}
 	
-	@ApiOperation(value = "Salva um novo cadastro de cliente")
+	@ApiOperation(value = "Salva um novo cadastro de Carro")
 	@PostMapping
 	public ResponseEntity<CarroDTO> saveCarro(@RequestBody CarroDTO carro) {
 		return ResponseEntity.ok(carroService.saveCarro(carro));
 	}
 	
-	@ApiOperation(value = "Atualiza a lista de Clientes")
+	@ApiOperation(value = "Atualiza a lista de Carros")
 	@PutMapping
 	public ResponseEntity<CarroDTO> updateCarro(@RequestBody CarroDTO carro) {
 		return ResponseEntity.ok(carroService.updateCarro(carro));
 	}
 	
-	@ApiOperation(value = "Deleta cliente por id")
+	@ApiOperation(value = "Deleta Carro por id")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		carroService.deleteCarro(id);
