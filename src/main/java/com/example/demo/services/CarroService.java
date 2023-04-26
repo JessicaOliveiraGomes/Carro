@@ -23,11 +23,13 @@ public class CarroService {
 		return carroMapper.entidadesParaDTO(carroRepository.findAll());
 	}
 	
+	public CarroDTO carroById(Long id) {
+		return carroMapper.entidadesParaDTO(carroRepository.findById(id).orElseGet(null));
+	}
 	public CarroDTO saveCarro(CarroDTO carro) {
 		Carro entidade = carroMapper.dtoParaEntidade(carro);
 		return carroMapper.entidadesParaDTO(carroRepository.save(entidade));
 	}
-	
 	
 	public CarroDTO updateCarro (CarroDTO carro) {
 		Carro entidade = carroMapper.dtoParaEntidade(carro);

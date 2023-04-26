@@ -13,7 +13,6 @@ import com.example.demo.entities.Document;
 @Component
 public class DocumentMapper {
 
-	
 	public DocumentDTO entidadeParaDTO(Document entidade) {
 		if (Objects.isNull(entidade)) {
 			return null;

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dto.DocumentDTO;
 import com.example.demo.services.DocumentService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -24,21 +25,25 @@ public class DocumentController {
 	
 	private final DocumentService documentService;
 	
+	@ApiOperation(value = "Retorna uma lista de Documentos")
 	@GetMapping
 	public ResponseEntity<List<DocumentDTO>> buscarDocuments() {
 		return ResponseEntity.ok(documentService.getDocuments());
 	}	
 	
+	@ApiOperation(value = "Salva um novo cadastro de Documento")
 	@PostMapping
 	public ResponseEntity<DocumentDTO> saveDocument(@RequestBody DocumentDTO document) {
 		return ResponseEntity.ok(documentService.saveDocument(document));
 	}
 	
+	@ApiOperation(value = "Atualiza a lista de Documentos")
 	@PutMapping
 	public ResponseEntity<DocumentDTO> updateDocument(@RequestBody DocumentDTO document) {
 		return ResponseEntity.ok(documentService.updateDocument(document));
 	}
-	 
+	
+	@ApiOperation(value = "Deleta Documento por id")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteById(@PathVariable Long id) {
 		documentService.deleteDocument(id);
